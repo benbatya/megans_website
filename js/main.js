@@ -1,9 +1,8 @@
 // Megan Gathers Wellness — shared site JS
 // Mobile nav, smooth scroll for in-page anchors, contact form submit.
 
-// FormSubmit AJAX endpoint (https://formsubmit.co/el/xuroge — the email
-// address behind it is configured on formsubmit.co, not in this code).
-const FORM_ENDPOINT = "https://formsubmit.co/ajax/xuroge";
+// The contact form POSTs natively to FormSubmit (action attribute in
+// contact.html) and redirects back here with ?sent=1 on success.
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
@@ -41,40 +40,18 @@ function initContactForm() {
   const status = form.querySelector(".form__status");
   const submit = form.querySelector('button[type="submit"]');
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    status.textContent = "";
-    status.className = "form__status";
+  // Returning from FormSubmit's _next redirect: show the thank-you message.
+  if (new URLSearchParams(window.location.search).get("sent") === "1") {
+    status.textContent = "Thanks for submitting! I'll contact you within 48 hours.";
+    status.classList.add("is-success");
+    form.scrollIntoView({ block: "center" });
+    // Clean the query string so a refresh doesn't re-show the message.
+    history.replaceState(null, "", window.location.pathname);
+  }
 
-    // Let the browser surface its native required/format messages.
-    if (!form.reportValidity()) return;
-
-    const data = new FormData(form);
+  // Native POST handles delivery; just guard against double submits.
+  form.addEventListener("submit", () => {
     submit.disabled = true;
-    const original = submit.textContent;
     submit.textContent = "Sending…";
-
-    try {
-      const res = await fetch(FORM_ENDPOINT, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      const body = await res.json().catch(() => ({}));
-      if (res.ok && body.success !== "false") {
-        form.reset();
-        status.textContent = "Thanks for submitting! I'll contact you within 48 hours.";
-        status.classList.add("is-success");
-      } else {
-        status.textContent = body.message || "Sorry, something went wrong. Please try again.";
-        status.classList.add("is-error");
-      }
-    } catch (err) {
-      status.textContent = "Network error. Please check your connection and try again.";
-      status.classList.add("is-error");
-    } finally {
-      submit.disabled = false;
-      submit.textContent = original;
-    }
   });
 }
