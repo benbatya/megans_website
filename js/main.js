@@ -1,9 +1,8 @@
 // Megan Gathers Wellness — shared site JS
 // Mobile nav, smooth scroll for in-page anchors, contact form submit.
 
-// TODO: Paste your Formspree project endpoint here once configured.
-// Sign up at https://formspree.io/ and create a form to get the URL.
-const FORMSPREE_ENDPOINT = "";
+// Where contact-form submissions are addressed.
+const CONTACT_EMAIL = "contact-form-recipient";
 
 document.addEventListener("DOMContentLoaded", () => {
   initMobileNav();
@@ -39,45 +38,49 @@ function initContactForm() {
   const form = document.querySelector("form.form");
   if (!form) return;
   const status = form.querySelector(".form__status");
-  const submit = form.querySelector('button[type="submit"]');
 
-  form.addEventListener("submit", async (e) => {
+  form.addEventListener("submit", (e) => {
     e.preventDefault();
     status.textContent = "";
     status.className = "form__status";
 
-    if (!FORMSPREE_ENDPOINT) {
-      status.textContent = "Form is not configured yet. Set FORMSPREE_ENDPOINT in js/main.js.";
-      status.classList.add("is-error");
-      return;
+    // Let the browser surface its native required/format messages.
+    if (!form.reportValidity()) return;
+
+    const value = (name) => (form.elements[name]?.value || "").trim();
+    const first = value("first-name");
+    const last = value("last-name");
+    const name = [first, last].filter(Boolean).join(" ");
+
+    const subject = name
+      ? `Wellness inquiry from ${name}`
+      : "Wellness inquiry";
+
+    // Build a readable email body from the filled-in fields only.
+    const lines = [
+      ["Name", name],
+      ["Email", value("email")],
+      ["Phone", value("phone")],
+      ["Address", value("address")],
+    ]
+      .filter(([, v]) => v)
+      .map(([label, v]) => `${label}: ${v}`);
+
+    const message = value("message");
+    if (message) {
+      lines.push("", "I am interested in:", message);
     }
 
-    const data = new FormData(form);
-    submit.disabled = true;
-    const original = submit.textContent;
-    submit.textContent = "Sending…";
+    const mailto =
+      `mailto:${CONTACT_EMAIL}` +
+      `?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(lines.join("\n"))}`;
 
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: "POST",
-        body: data,
-        headers: { Accept: "application/json" },
-      });
-      if (res.ok) {
-        form.reset();
-        status.textContent = "Thanks for submitting! I'll contact you within 48 hours.";
-        status.classList.add("is-success");
-      } else {
-        const body = await res.json().catch(() => ({}));
-        status.textContent = body.error || "Sorry, something went wrong. Please try again.";
-        status.classList.add("is-error");
-      }
-    } catch (err) {
-      status.textContent = "Network error. Please check your connection and try again.";
-      status.classList.add("is-error");
-    } finally {
-      submit.disabled = false;
-      submit.textContent = original;
-    }
+    // Opens the visitor's default mail app with everything pre-filled.
+    window.location.href = mailto;
+
+    status.textContent =
+      "Opening your email app with the message ready to send…";
+    status.classList.add("is-success");
   });
 }
