@@ -169,7 +169,10 @@
 
           <div class="field">
             <label for="phone">Phone <span aria-hidden="true">*</span></label>
-            <input id="phone" name="phone" type="tel" required maxlength="50" autocomplete="tel">
+            <!-- US phone formats: (123) 456-7890, 123-456-7890, 123.456.7890, 1234567890 -->
+            <input id="phone" name="phone" type="tel" required maxlength="50" autocomplete="tel"
+                   pattern="\(?([0-9]{3})\)?[\-. ]?([0-9]{3})[\-. ]?([0-9]{4})"
+                   title="Please enter a 10-digit US phone number, e.g. (123) 456-7890 or 123-456-7890">
           </div>
 
           <div class="field">
