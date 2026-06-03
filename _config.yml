@@ -1,0 +1,5 @@
+# GitHub Pages (Jekyll) build settings.
+# Keep the saved original Wix site in the repo but out of the published site.
+exclude:
+  - reference/
+  - scripts/
