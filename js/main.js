@@ -49,9 +49,32 @@ function initContactForm() {
     history.replaceState(null, "", window.location.pathname);
   }
 
-  // Native POST handles delivery; just guard against double submits.
-  form.addEventListener("submit", () => {
+  // Validate before the native POST; guard against double submits.
+  form.addEventListener("submit", (e) => {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      // Outline invalid fields (see .form.was-validated CSS) and show
+      // the browser's own message on the first one.
+      form.classList.add("was-validated");
+      form.reportValidity();
+      const firstInvalid = form.querySelector(":invalid");
+      if (firstInvalid) firstInvalid.focus();
+      status.textContent = "Please fill in the required fields marked with * before submitting.";
+      status.classList.add("is-error");
+      return;
+    }
+    status.textContent = "";
+    status.className = "form__status";
     submit.disabled = true;
     submit.textContent = "Sending…";
+  });
+
+  // Clear a field's error styling as soon as it becomes valid again.
+  form.addEventListener("input", (e) => {
+    if (form.classList.contains("was-validated") && form.checkValidity()) {
+      form.classList.remove("was-validated");
+      status.textContent = "";
+      status.className = "form__status";
+    }
   });
 }

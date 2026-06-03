@@ -407,6 +407,13 @@ strong { font-weight: 600; }
 .form__status.is-success { color: var(--color-primary); }
 .form__status.is-error { color: #c0392b; }
 
+/* After a failed submit attempt (JS adds .was-validated), outline invalid fields. */
+.form.was-validated input:invalid,
+.form.was-validated textarea:invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 3px rgba(192, 57, 43, .15);
+}
+
 /* ----- Image gallery (full bleed band) ----- */
 .gallery {
   display: grid; gap: 4px;
