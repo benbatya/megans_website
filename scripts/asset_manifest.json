@@ -1,0 +1,143 @@
+{
+  "_comment": "URL -> local path mapping for media. Edit local names freely; rerun fetch_assets.py \u2014 existing files are skipped. (SVG branding now uses img/wordmark.svg, img/logomark.svg, img/footer-mark.svg, img/ornament.svg extracted from the original page; raster logos no longer needed.)",
+  "images": [
+    {
+      "url": "https://static.wixstatic.com/media/494735_33431f903d5e411b91996fd0c5879114~mv2.png",
+      "local": "img/decor-band.png"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/81af6121f84c41a5b4391d7d37fce12a.png",
+      "local": "img/instagram-icon.png"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_b99b5d0412984f76a186a8774f2cf781~mv2.jpg",
+      "local": "img/megan-home-portrait.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_68479a1607904729a712b50fa814f9e6~mv2.jpg",
+      "local": "img/megan-portrait.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_ad5dc220ac6f4273835fdfd821f5e031~mv2.jpg",
+      "local": "img/megan-portrait-alt.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_082234d9dc6b4f15a7eb02638acc8d72~mv2.jpg",
+      "local": "img/megan-books.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_d899b4317eb94777b5ca690a78f83cb6~mv2.jpg",
+      "local": "img/private-yoga-1.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_38f1d2e807414493a5e717a538b449a6~mv2.jpg",
+      "local": "img/private-yoga-2.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_c774fa6f8695416e900dec69b752cfc6~mv2.jpg",
+      "local": "img/private-yoga-3.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_e8e15ca182d94fcc995662a47fa5d0c4~mv2.jpg",
+      "local": "img/strength-plank.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_943d881ecafd49c2a2e3cc686cebd77d~mv2.jpg",
+      "local": "img/strength-training.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_afcfdbcd3644483f95b80c006419b369~mv2.jpg",
+      "local": "img/prenatal-1.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_c7d7d7d38e52417c8e87e6327029059c~mv2.jpg",
+      "local": "img/prenatal-2.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_2ca11125f53b46b98151fd845b2cf8ef~mv2.jpg",
+      "local": "img/bodywork-neck-1.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_14a480794cc34ac19c20484515253e41~mv2.jpg",
+      "local": "img/bodywork-neck-2.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_27755edc537a48689ac1f66d5bf79153~mv2.jpg",
+      "local": "img/meditation.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_9c983ab5fed744bfbd2c75fbfaad8a2e~mv2.jpg",
+      "local": "img/landscape-beach.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_d956d0c841b240ea8257e534feb60a76~mv2.jpg",
+      "local": "img/landscape-mountain.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_07af265faf434373bb19962cd05e121b~mv2.jpg",
+      "local": "img/landscape-smoky-mountains.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/nsplsh_e7a17383578640a5ba013bcc1fc22d61~mv2.jpg",
+      "local": "img/landscape-nature.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_3d8d624e76a141fca254fbdc8f60d880f000.jpg",
+      "local": "img/video-poster-home.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_da288a68514a4f429c70c8034839729cf000.jpg",
+      "local": "img/video-poster-offerings.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_784afce4ca2e4d96a2ef9a97b85062b1~mv2.jpg",
+      "local": "img/decor-01.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_7a66687ecb99430ca1a5d6a952e00758~mv2.jpg",
+      "local": "img/decor-02.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_b872e4b8bb4244ff9b8be4eb267418a2~mv2.jpg",
+      "local": "img/decor-03.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_ba413cbe94034768832142c8276732f2~mv2.jpg",
+      "local": "img/decor-04.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_bf64509abe414acdaba2eefc2c34986e~mv2.jpg",
+      "local": "img/decor-05.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_db44264a60b7474da764cd9612ba7b52~mv2.jpg",
+      "local": "img/decor-06.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_e6842caed3e248b697733c187271d2ec~mv2.jpg",
+      "local": "img/decor-07.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_ebab59b37ce84917b86c6ad283995093~mv2.jpg",
+      "local": "img/decor-08.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_fc11a73eddd24128a16d07ffeaab21d9~mv2.jpg",
+      "local": "img/decor-09.jpg"
+    },
+    {
+      "url": "https://static.wixstatic.com/media/494735_a34120368bc04f77af5d43fd26ce4f25~mv2.jpeg",
+      "local": "img/decor-10.jpeg"
+    }
+  ],
+  "videos": [
+    {
+      "url": "https://video.wixstatic.com/video/494735_3d8d624e76a141fca254fbdc8f60d880/1080p/mp4/file.mp4",
+      "local": "video/hero-home.mp4"
+    },
+    {
+      "url": "https://video.wixstatic.com/video/494735_da288a68514a4f429c70c8034839729c/720p/mp4/file.mp4",
+      "local": "video/offerings-secondary.mp4"
+    }
+  ]
+}
